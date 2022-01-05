@@ -59,4 +59,6 @@
   define('TABLE_ZONES_TO_GEO_ZONES', 'zones_to_geo_zones');
   define('TABLE_WHOS_ONLINE', 'whos_online');
   define('TABLE_ZONES', 'zones');
+
+define('TABLE_MEASUREMENT', 'measurement');
 ?>

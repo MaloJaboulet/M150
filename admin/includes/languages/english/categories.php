@@ -90,6 +90,11 @@ define('TEXT_PRODUCTS_PRICE_NET', 'Products Price (Net):');
 define('TEXT_PRODUCTS_PRICE_GROSS', 'Products Price (Gross):');
 define('TEXT_PRODUCTS_WEIGHT', 'Products Weight:');
 
+define('TEXT_PRODUCTS_WIDTH', 'Width:');
+define('TEXT_PRODUCTS_HEIGHT', 'Height:');
+define('TEXT_PRODUCTS_LENGTH', 'Lenght:');
+define('TEXT_PRODUCTS_MEASUREMENT', 'Measurement:');
+
 define('EMPTY_CATEGORY', 'Empty Category');
 
 define('TEXT_HOW_TO_COPY', 'Copy Method:');
