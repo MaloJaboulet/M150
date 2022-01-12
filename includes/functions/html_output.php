@@ -293,9 +293,12 @@
   function tep_draw_pull_down_menu($name, $values, $default = '', $parameters = '', $required = false) {
     global $HTTP_GET_VARS, $HTTP_POST_VARS;
 
+
     $field = '<select name="' . tep_output_string($name) . '"';
 
+
     if (tep_not_null($parameters)) $field .= ' ' . $parameters;
+
 
     $field .= '>';
 

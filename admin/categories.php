@@ -724,19 +724,19 @@ if ($action == 'new_product') {
                     </tr>
                     <tr>
                         <td class="main"><?php echo TEXT_PRODUCTS_MEASUREMENT; ?></td>
-                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_pull_down_menu('measurement_id', $measurement_array, $pInfo->measurement_id); ?></td>
+                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_pull_down_menu('measurement_id', $measurement_array,null,null,true, $pInfo->measurement_id); ?></td>
                     </tr>
                     <tr>
                         <td class="main"><?php echo TEXT_PRODUCTS_HEIGHT; ?></td>
-                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_height', $pInfo->products_height); ?></td>
+                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_height',null,null,true,'number',null,true, $pInfo->products_height); ?></td>
                     </tr>
                     <tr>
                         <td class="main"><?php echo TEXT_PRODUCTS_LENGTH; ?></td>
-                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_length', $pInfo->products_length); ?></td>
+                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_length',null,null,true,'number',null,true, $pInfo->products_length); ?></td>
                     </tr>
                     <tr>
                         <td class="main"><?php echo TEXT_PRODUCTS_WIDTH; ?></td>
-                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_width', $pInfo->products_width); ?></td>
+                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_width',null,null,true,'number',null,true, $pInfo->products_width); ?></td>
                     </tr>
                 </table>
             </td>
