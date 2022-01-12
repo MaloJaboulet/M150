@@ -347,10 +347,23 @@ if (tep_not_null($action)) {
                         $messageStack->add_session(ERROR_CANNOT_LINK_TO_SAME_CATEGORY, 'error');
                     }
                 } elseif ($HTTP_POST_VARS['copy_as'] == 'duplicate') {
-                    $product_query = tep_db_query("select products_quantity, products_model, products_image, products_price, products_date_available, products_weight, products_tax_class_id, manufacturers_id,products_length, products_height, products_width, measurement_id from " . TABLE_PRODUCTS . " where products_id = '" . (int)$products_id . "'");
+                    $product_query = tep_db_query("select products_quantity, products_model, products_image, 
+                        products_price, products_date_available, products_weight, products_tax_class_id, 
+                    manufacturers_id,products_length, products_height, products_width, measurement_id 
+                        from " . TABLE_PRODUCTS . " where products_id = '" . (int)$products_id . "'");
                     $product = tep_db_fetch_array($product_query);
 
-                    tep_db_query("insert into " . TABLE_PRODUCTS . " (products_quantity, products_model,products_image, products_price, products_date_added, products_date_available, products_weight, products_status, products_tax_class_id, manufacturers_id, products_length, products_height, products_width, measurement_id) values ('" . tep_db_input($product['products_quantity']) . "', '" . tep_db_input($product['products_model']) . "', '" . tep_db_input($product['products_image']) . "', '" . tep_db_input($product['products_price']) . "',  now(), " . (empty($product['products_date_available']) ? "null" : "'" . tep_db_input($product['products_date_available']) . "'") . ", '" . tep_db_input($product['products_weight']) . "', '0', '" . (int)$product['products_tax_class_id'] . "', '" . (int)$product['manufacturers_id'] . "','" . (int)$product['products_length'] . "','" . (int)$product['products_height'] . "','" . (int)$product['products_width'] . "','" . (int)$product['measurement_id'] . "')");
+                    tep_db_query("insert into " . TABLE_PRODUCTS . " (products_quantity, products_model,products_image, 
+                    products_price, products_date_added, products_date_available, products_weight, products_status, 
+                    products_tax_class_id, manufacturers_id, products_length, products_height, products_width, 
+                    measurement_id) values ('" . tep_db_input($product['products_quantity']) . "', '" .
+                        tep_db_input($product['products_model']) . "', '" . tep_db_input($product['products_image']) . "', '"
+                        . tep_db_input($product['products_price']) . "',  now(), " . (empty($product['products_date_available'])
+                            ? "null" : "'" . tep_db_input($product['products_date_available']) . "'") . ", '" .
+                        tep_db_input($product['products_weight']) . "', '0', '" . (int)$product['products_tax_class_id'] . "', '"
+                        . (int)$product['manufacturers_id'] . "','" . (int)$product['products_length'] . "','"
+                        . (int)$product['products_height'] . "','" . (int)$product['products_width'] . "','"
+                        . (int)$product['measurement_id'] . "')");
                     $dup_products_id = tep_db_insert_id();
 
                     $description_query = tep_db_query("select language_id, products_name, products_description, products_url from " . TABLE_PRODUCTS_DESCRIPTION . " where products_id = '" . (int)$products_id . "'");

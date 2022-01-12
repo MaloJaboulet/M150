@@ -216,6 +216,9 @@
     if ($decimal){
       $field .= 'step=".01" min="0" max="9999.99"';
     }
+    if ($required){
+      $field .= "required";
+    }
     $field .= ' />';
 
     if ($required == true) $field .= TEXT_FIELD_REQUIRED;
@@ -340,6 +343,10 @@
     $field = '<select name="' . tep_output_string($name) . '"';
 
     if (tep_not_null($parameters)) $field .= ' ' . $parameters;
+
+    if ($required){
+      $field .= "required";
+    }
 
     $field .= '>';
 
