@@ -349,7 +349,7 @@ if (tep_not_null($action)) {
                 } elseif ($HTTP_POST_VARS['copy_as'] == 'duplicate') {
                     $product_query = tep_db_query("select products_quantity, products_model, products_image, 
                         products_price, products_date_available, products_weight, products_tax_class_id, 
-                    manufacturers_id,products_length, products_height, products_width, measurement_id 
+                    manufacturers_id, products_height, products_width, products_length, measurement_id 
                         from " . TABLE_PRODUCTS . " where products_id = '" . (int)$products_id . "'");
                     $product = tep_db_fetch_array($product_query);
 
@@ -417,15 +417,15 @@ if ($action == 'new_product') {
         'products_status' => '',
         'products_tax_class_id' => '',
         'manufacturers_id' => '',
-        'products_width' => '',
         'products_height' => '',
-        'products_lenght' => '',
+        'products_length' => '',
+        'products_width' => '',
         'measurement_id' => '');
 
     $pInfo = new objectInfo($parameters);
 
     if (isset($HTTP_GET_VARS['pID']) && empty($HTTP_POST_VARS)) {
-        $product_query = tep_db_query("select pd.products_name, pd.products_description, pd.products_url, p.products_id, p.products_quantity, p.products_model, p.products_image, p.products_price, p.products_weight, p.products_date_added, p.products_last_modified, date_format(p.products_date_available, '%Y-%m-%d') as products_date_available, p.products_status, p.products_tax_class_id, p.manufacturers_id from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where p.products_id = '" . (int)$HTTP_GET_VARS['pID'] . "' and p.products_id = pd.products_id and pd.language_id = '" . (int)$languages_id . "'");
+        $product_query = tep_db_query("select pd.products_name, pd.products_description, pd.products_url, p.products_id, p.products_quantity, p.products_model, p.products_image, p.products_price, p.products_weight, p.products_date_added, p.products_last_modified, date_format(p.products_date_available, '%Y-%m-%d') as products_date_available, p.products_status, p.products_tax_class_id, p.manufacturers_id, p.products_height, p.products_length, p.products_width from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where p.products_id = '" . (int)$HTTP_GET_VARS['pID'] . "' and p.products_id = pd.products_id and pd.language_id = '" . (int)$languages_id . "'");
         $product = tep_db_fetch_array($product_query);
 
         $pInfo->objectInfo($product);
@@ -741,15 +741,15 @@ if ($action == 'new_product') {
                     </tr>
                     <tr>
                         <td class="main"><?php echo TEXT_PRODUCTS_HEIGHT; ?></td>
-                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_height',null,null,true,'number',null,true, $pInfo->products_height); ?></td>
+                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_height',$pInfo->products_height,null,true,'number',null,true); ?></td>
                     </tr>
                     <tr>
                         <td class="main"><?php echo TEXT_PRODUCTS_LENGTH; ?></td>
-                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_length',null,null,true,'number',null,true, $pInfo->products_length); ?></td>
+                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_length',$pInfo->products_length,null,true,'number',null,true); ?></td>
                     </tr>
                     <tr>
                         <td class="main"><?php echo TEXT_PRODUCTS_WIDTH; ?></td>
-                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_width',null,null,true,'number',null,true, $pInfo->products_width); ?></td>
+                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_width',$pInfo->products_width,null,true,'number',null,true); ?></td>
                     </tr>
                 </table>
             </td>
